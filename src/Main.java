@@ -17,4 +17,8 @@ public class Main {
     private JTextField textField5;
     private JCheckBox dinginCheckBox;
     private JTextField textField6;
+    private JCheckBox price1;
+    private JTextField textField7;
+    private JCheckBox price2;
+    private JTextField textField8;
 }
