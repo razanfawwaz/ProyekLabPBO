@@ -7,25 +7,10 @@ import java.awt.event.ActionListener;
 
 public class Main {
     private JPanel panel;
-    private JButton exitButton;
     private JTable makananTable;
-    private JCheckBox cepatSajiCheckBox;
-    private JCheckBox sehatCheckBox;
-    private JTextField cepatSajiField;
-    private JTextField sehatField;
-    private JCheckBox asamCheckBox;
-    private JTextField asamField;
-    private JCheckBox manisCheckBox;
-    private JTextField manisField;
-    private JCheckBox panasCheckBox;
-    private JTextField panasField;
-    private JCheckBox dinginCheckBox;
-    private JTextField dinginField;
-    private JCheckBox price1;
-    private JTextField priceField1;
-    private JCheckBox price2;
-    private JTextField priceField2;
     private JTable minumanTable;
+    private JButton minumanButton;
+    private JButton makananButton;
 
     Object [][] listMakanan;
     Object [][] listMinuman;
