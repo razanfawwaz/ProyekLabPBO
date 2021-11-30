@@ -1,5 +1,7 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Makanan{
     private JPanel panel;
@@ -15,6 +17,8 @@ public class Makanan{
     private JTextPane textUang;
     private JComboBox cmbYesOrNo;
     private JButton backButton;
+    private JTextPane txtCountry;
+    private static JFrame frame;
 
     Object [][] listMinuman;
     public Makanan() {
@@ -31,16 +35,17 @@ public class Makanan{
                 listMakanan, new String[]{"Makanan", "Harga", "Tipe", "Tag", "Asal"}
         ));
         backButton.addActionListener(actionEvent -> {
-//            new Show();
             new Main().main(null);
+            this.frame.setVisible(false);
         });
     }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Rekomendasi Makanan");
+        frame = new JFrame("Rekomendasi Makanan");
         frame.setContentPane(new Makanan().panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+
     }
 }
