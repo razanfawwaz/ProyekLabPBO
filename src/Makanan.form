@@ -223,15 +223,13 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="a727c" class="javax.swing.JTextPane" binding="textUang">
+          <component id="8b2eb" class="javax.swing.JTextField" binding="txtUang">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="50"/>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties>
-              <text value=""/>
-            </properties>
+            <properties/>
           </component>
         </children>
       </grid>
@@ -314,7 +312,7 @@
             <properties/>
             <border type="none" title=""/>
             <children>
-              <component id="2622a" class="javax.swing.JComboBox">
+              <component id="2622a" class="javax.swing.JComboBox" binding="cmbHealthy">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -355,15 +353,13 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="8d583" class="javax.swing.JTextPane" binding="txtCountry">
+          <component id="77f98" class="javax.swing.JTextField" binding="txtCountry">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="50"/>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties>
-              <text value=""/>
-            </properties>
+            <properties/>
           </component>
         </children>
       </grid>
