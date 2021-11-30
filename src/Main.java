@@ -38,10 +38,18 @@ public class Main {
         minumanTable.setModel(new DefaultTableModel(
                 listMinuman, new String[]{"Minuman", "Harga", "Ukuran", "Jenis", "Kategori", "Tag", "Asal"}
         ));
+        makananButton.addActionListener(actionEvent -> {
+//            new Show();
+            new Makanan().main(null);
+            ;
+        });
+        minumanButton.addActionListener(actionEvent -> {
+//            new Show();
+            new Minuman().main(null);
+        });
     }
-
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Pemesanan");
+        JFrame frame = new JFrame("Menu");
         frame.setContentPane(new Main().panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
