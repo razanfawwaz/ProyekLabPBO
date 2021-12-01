@@ -1,7 +1,7 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
-import Method.DaftarMenu;
+import Method.Menu;
 import Method.Minuman_Method;
 
 public class Minuman {
@@ -20,7 +20,7 @@ public class Minuman {
     private JTextPane txtCountry;
     private JButton backButton;
     private static JFrame frame;
-    static DaftarMenu menu = new DaftarMenu();
+    static Menu = new Menu();
     static ArrayList<Minuman_Method> rekom = new ArrayList<>();
 
     Object [][] listMinuman;
@@ -170,32 +170,6 @@ public class Minuman {
         frame.setContentPane(new Minuman().panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-        frame.setVisible(true);
-    }
-}
-class Show {
-    private JTextArea txtOutput;
-    private JPanel jpanelmain;
-
-
-    public Show() {
-        createAndShowGui();
-    }
-
-    public void setTeks(String text) {
-        txtOutput.setText(text);
-    }
-
-    void createAndShowGui(){
-
-        JFrame frame=new JFrame("Hasil Rekomendasi");
-        frame.setLocationRelativeTo(null);
-        jpanelmain = new JPanel();
-        txtOutput = new JTextArea();
-        jpanelmain.add(txtOutput);
-        frame.setContentPane(jpanelmain);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300,300);
         frame.setVisible(true);
     }
 }
