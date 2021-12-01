@@ -1,5 +1,6 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
 
 public class Minuman {
     private JPanel panel;
@@ -16,9 +17,9 @@ public class Minuman {
     private JRadioButton besarRadioButton;
     private JTextPane txtCountry;
     private JButton backButton;
+    private static JFrame frame;
 
     Object [][] listMinuman;
-    Object [][] listMakanan;
     public Minuman() {
         Object [][] listMinuman = {
                 {"Ocha", "10.000", "M", "Dingin", "Non-kafein", "Pahit", "Jepang"},
@@ -32,13 +33,14 @@ public class Minuman {
                 listMinuman, new String[]{"Minuman", "Harga", "Ukuran", "Jenis", "Kategori", "Tag", "Asal"}
         ));
         backButton.addActionListener(actionEvent -> {
-//            new Show();
             new Main().main(null);
+            this.frame.setVisible(false);
         });
     }
 
+
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Rekomendasi Minuman");
+        frame = new JFrame("Rekomendasi Minuman");
         frame.setContentPane(new Minuman().panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();

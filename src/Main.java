@@ -11,6 +11,7 @@ public class Main {
     private JTable minumanTable;
     private JButton minumanButton;
     private JButton makananButton;
+    private static JFrame frame;
 
     Object [][] listMakanan;
     Object [][] listMinuman;
@@ -39,17 +40,17 @@ public class Main {
                 listMinuman, new String[]{"Minuman", "Harga", "Ukuran", "Jenis", "Kategori", "Tag", "Asal"}
         ));
         makananButton.addActionListener(actionEvent -> {
-//            new Show();
             new Makanan().main(null);
-            ;
+            this.frame.setVisible(false);
+
         });
         minumanButton.addActionListener(actionEvent -> {
-//            new Show();
             new Minuman().main(null);
+            this.frame.setVisible(false);
         });
     }
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Menu");
+        frame = new JFrame("Menu");
         frame.setContentPane(new Main().panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
