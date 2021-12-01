@@ -20,7 +20,7 @@ public class Minuman {
     private JTextPane txtCountry;
     private JButton backButton;
     private static JFrame frame;
-    static Menu = new Menu();
+    static Menu menu = new Menu();
     static ArrayList<Minuman_Method> rekom = new ArrayList<>();
 
     Object [][] listMinuman;
@@ -40,54 +40,26 @@ public class Minuman {
             new Main().main(null);
             this.frame.setVisible(false);
         });
-        showRecommendationButton.addActionListener(actionEvent -> {
-            Show out = new Show();
-            String pembuka = "Berikut minuman yang kami rekomendasikan: \n";
-            int jlh = rekom.size();
-            if (jlh == 1) {
-                out.setTeks(pembuka +
-                        rekom.get(0).getNama());
-            } else if (jlh == 2) {
-                out.setTeks(pembuka +
-                        rekom.get(0).getNama() + "\n" +
-                        rekom.get(1).getNama());
-            } else if (jlh == 3) {
-                out.setTeks(pembuka +
-                        rekom.get(0).getNama() + "\n" +
-                        rekom.get(1).getNama() + "\n" +
-                        rekom.get(2).getNama());
-            } else if (jlh == 4) {
-                out.setTeks(pembuka +
-                        rekom.get(0).getNama() + "\n" +
-                        rekom.get(1).getNama() + "\n" +
-                        rekom.get(2).getNama() + "\n" +
-                        rekom.get(3).getNama());
-            } else {
-                out.setTeks("Maaf tidak ada rekomendasi yang sesuai dengan budget atau selera anda :(");
-            }
-//            out.main(null);
-            frame.setVisible(false);
-        });
         pahitCheckBox.addActionListener(actionEvent ->{
             if (pahitCheckBox.isSelected()){
                 rekom.add(menu.getOcha());
-                rekom.add(menu.getIcedCoffeeLatte());
+                rekom.add(menu.getIcedcoffeelatte());
             }
         });
         manisCheckBox.addActionListener(actionEvent ->{
             if (manisCheckBox.isSelected()){
                 rekom.add(menu.getEsteh());
                 rekom.add(menu.getThaitea());
-                rekom.add(menu.getTehTarik());
-                rekom.add(menu.getIcedCoffeeLatte());
+                rekom.add(menu.getTehtarik());
+                rekom.add(menu.getIcedcoffeelatte());
             }
         });
-        txtUang.addActionListener(actionEvent ->{
+        textUang.addActionListener(actionEvent ->{
             if(rekom.isEmpty()) {
                 addMenuMinum();
             }
 
-            int money = Integer.parseInt(txtUang.getText());
+            int money = Integer.parseInt(textUang.getText());
             int loop = rekom.size();
             int i = 0;
             while(i <= loop) {
@@ -157,12 +129,12 @@ public class Minuman {
         });
     }
 
-    private void addMenuMinum() {
+  private void addMenuMinum() {
         rekom.add(menu.getOcha());
         rekom.add(menu.getEsteh());
-        rekom.add(menu.getIcedCoffeeLatte());
+        rekom.add(menu.getIcedcoffeelatte());
         rekom.add(menu.getThaitea());
-        rekom.add(menu.getTehTarik());
+        rekom.add(menu.getTehtarik());
     }
 
     public static void main(String[] args) {
