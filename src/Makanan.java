@@ -1,7 +1,5 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import Method.DaftarMenu;
 import Method.Makanan_Method;
@@ -9,6 +7,7 @@ import Method.Makanan_Method;
 public class Makanan{
     private JPanel panel;
     private JTable makananTable;
+    private JTable minumanTable;
     private JButton showRecommendationButton;
     private JCheckBox manisCheckBox;
     private JCheckBox asinCheckBox;
@@ -16,6 +15,7 @@ public class Makanan{
     private JCheckBox pedasCheckBox;
     private JCheckBox asamCheckBox;
     private JCheckBox gurihCheckBox;
+    private JTextPane textUang;
     private JComboBox cmbYesOrNo;
     private JButton backButton;
     private JComboBox cmbHealthy;
@@ -25,6 +25,7 @@ public class Makanan{
     static DaftarMenu menu = new DaftarMenu();
     static ArrayList<Makanan_Method> rekom = new ArrayList<>();
 
+    Object [][] listMakanan;
     public Makanan() {
         Object [][] listMakanan = {
                 {"Spaghetti", "10.000", "Non-vegetarian" , "manis, asam, pedas, sehat", "Italia"},
@@ -271,8 +272,16 @@ public class Makanan{
 class Show {
     private JTextArea txtOutput;
     private JPanel jpanelmain;
+    private JFrame frame;
+    private JButton btnHome;
+
+
     public Show() {
         createAndShowGui();
+        btnHome.addActionListener(actionEvent -> {
+            new Main().main(null);
+            this.frame.setVisible(false);
+        });
     }
 
     public void setTeks(String text) {
@@ -281,12 +290,13 @@ class Show {
 
     void createAndShowGui(){
 
-        JFrame frame=new JFrame("Hasil Rekomendasi");
+        frame=new JFrame("Hasil Rekomendasi");
         frame.setLocationRelativeTo(null);
         jpanelmain = new JPanel();
         txtOutput = new JTextArea();
+        btnHome = new JButton("Home");
         jpanelmain.add(txtOutput);
-
+        jpanelmain.add(btnHome);
         frame.setContentPane(jpanelmain);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300,300);

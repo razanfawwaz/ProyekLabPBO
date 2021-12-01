@@ -29,7 +29,7 @@ public class Main {
         ));
         Object [][] listMinuman = {
                 {"Ocha", "10.000", "M", "Dingin", "Non-kafein", "Pahit", "Jepang"},
-                {"Esteh", "5.000", "M", "Dingin", "Non-kafein", "Manis", "Jepang"},
+                {"Esteh", "5.000", "S", "Dingin", "Non-kafein", "Manis", "Jepang"},
                 {"Iced Coffee Latte", "60.000", "L", "Dingin", "Kafein", "pahit, manis", "Amerika"},
                 {"Thaitea", "30.000", "M", "Dingin", "Non-kafein", "Manis", "Thailand"},
                 {"Teh Tarik", "20.000", "L", "Dingin", "Non-kafein", "Manis", "Indonesia"},

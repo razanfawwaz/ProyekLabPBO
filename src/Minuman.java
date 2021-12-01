@@ -19,6 +19,7 @@ public class Minuman {
     private JRadioButton besarRadioButton;
     private JTextField txtCountry;
     private JButton backButton;
+    private JComboBox cmbKategori;
     private static JFrame frame;
     static Menu menu = new Menu();
     static ArrayList<Minuman_Method> rekom = new ArrayList<>();
@@ -27,7 +28,7 @@ public class Minuman {
         // dingin = true, panas = false
         Object [][] listMinuman = {
                 {"Ocha", "10.000", "M", "Dingin", "Non-kafein", "Pahit", "Jepang"},
-                {"Esteh", "5.000", "M", "Dingin", "Non-kafein", "Manis", "Jepang"},
+                {"Esteh", "5.000", "S", "Dingin", "Non-kafein", "Manis", "Jepang"},
                 {"Iced Coffee Latte", "60.000", "L", "Dingin", "Kafein", "pahit, manis", "Amerika"},
                 {"Thaitea", "30.000", "M", "Dingin", "Non-kafein", "Manis", "Thailand"},
                 {"Teh Tarik", "20.000", "L", "Panas", "Non-kafein", "Manis", "Indonesia"},
@@ -79,30 +80,69 @@ public class Minuman {
                 }
             }
         });
+        cmbKategori.addActionListener(actionEvent ->{
+            String cool,hot;
+            cool = String.valueOf(cmbKategori.getSelectedItem());
+            if(cool.equalsIgnoreCase("Kafein")){
+                if(rekom.isEmpty()){
+                    addMenuMinum();
+                }
+                int loop = rekom.size();
+                int i = 0;
+                while (i < loop){
+                    if (rekom.get(i).getSuhu()){
+                        rekom.remove(i);
+                        loop = rekom.size();
+                        i = 0;
+                    }
+                    else{
+                        i++;
+                    }
+                }
+            }
+            hot = String.valueOf(cmbKategori.getSelectedItem());
+            if(hot.equalsIgnoreCase("Non-kafein")){
+                if(rekom.isEmpty()){
+                    addMenuMinum();
+                }
+                int loop = rekom.size();
+                int i = 0;
+                while (i < loop){
+                    if (rekom.get(i).getSuhu()){
+                        rekom.remove(i);
+                        loop = rekom.size();
+                        i = 0;
+                    }
+                    else{
+                        i++;
+                    }
+                }
+            }
+        });
         showRecommendationButton.addActionListener(actionEvent -> {
-            Show out = new Show();
+            Show out_minum = new Show();
             String pembuka = "Berikut Minuman yang kami rekomendasikan: \n";
             int jlh = rekom.size();
             if (jlh == 1) {
-                out.setTeks(pembuka +
+                out_minum.setTeks(pembuka +
                         rekom.get(0).getNama());
             } else if (jlh == 2) {
-                out.setTeks(pembuka +
+                out_minum.setTeks(pembuka +
                         rekom.get(0).getNama() + "\n" +
                         rekom.get(1).getNama());
             } else if (jlh == 3) {
-                out.setTeks(pembuka +
+                out_minum.setTeks(pembuka +
                         rekom.get(0).getNama() + "\n" +
                         rekom.get(1).getNama() + "\n" +
                         rekom.get(2).getNama());
             } else if (jlh == 4) {
-                out.setTeks(pembuka +
+                out_minum.setTeks(pembuka +
                         rekom.get(0).getNama() + "\n" +
                         rekom.get(1).getNama() + "\n" +
                         rekom.get(2).getNama() + "\n" +
                         rekom.get(3).getNama());
             } else {
-                out.setTeks("Maaf tidak ada rekomendasi yang \n sesuai dengan budget atau selera anda :(");
+                out_minum.setTeks("Maaf tidak ada rekomendasi yang \nsesuai dengan budget atau selera anda :(");
             }
 //            out.main(null);
             frame.setVisible(false);
@@ -140,6 +180,7 @@ public class Minuman {
                     kecilRadioButton.setSelected(false);
                     besarRadioButton.setSelected(false);
                     rekom.add(menu.getThaitea());
+                    rekom.add(menu.getOcha());
                 }
             }
         });
