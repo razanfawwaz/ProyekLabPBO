@@ -1,11 +1,13 @@
+package Method;
+
 import java.util.ArrayList;
 
 public class Minuman_Method {
     private final String nama;
     private final int harga;
     private String ukuran;
-    private String suhu;
-    private boolean cafein;
+    private final Boolean suhu;
+    private boolean kategori;
     private final ArrayList<String> tag;
     private final String negara;
 
@@ -16,12 +18,13 @@ public class Minuman_Method {
      * @param tag Tag
      * @param negara Asal negara
      */
-    public Minuman_Method(String nama, int harga, String jenis, String tag, String negara){
+    public Minuman_Method(String nama, int harga, String ukuran, Boolean suhu, Boolean kategori, ArrayList<String> tag, String negara){
+
         this.nama = nama;
         this.harga = harga;
         this.ukuran = ukuran;
         this.suhu = suhu;
-        this.cafein = cafein;
+        this.kategori = kategori;
         this.tag = tag;
         this.negara = negara;
 
@@ -38,24 +41,24 @@ public class Minuman_Method {
         return this.ukuran;
     }
 
-    public String setSuhu(){
+    public boolean setSuhu(){
         return this.suhu;
     }
 
-    public boolean setCafein(){
-        return this.cafein;
+    public boolean setKategori(){
+        return this.kategori;
     }
 
     public String getUkuran(){
         return this.ukuran;
     }
 
-    public String getSuhu(){
+    public boolean getSuhu(){
         return this.suhu;
     }
 
-    public boolean getCafein(){
-        return this.cafein;
+    public boolean getKategori(){
+        return this.kategori;
     }
 
     public String getTag(int index) {

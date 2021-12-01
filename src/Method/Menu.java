@@ -10,7 +10,6 @@ import java.util.ArrayList;
  * @author Kelompok 6
  */
 public class Menu {
-    public class Menu {
     private Minuman_Method ocha;
     private Minuman_Method esteh;
     private Minuman_Method icedcoffeelatte;
@@ -25,27 +24,29 @@ public class Menu {
 
     public Menu() {
 
+        // dingin = true, panas = false
+
         tagOcha.add("pahit");
 
-        ocha = new Minuman_Method("Ocha", 10000, false, true, tagOcha, "Jepang");
+        ocha = new Minuman_Method("Ocha", 10000, "M", true, false,tagOcha, "Jepang");
 
         tagEsteh.add("manis");
 
-        esteh = new Minuman_Method("Esteh", 5000, false, true, tagEsteh, "Jepang");
+        esteh = new Minuman_Method("Esteh", 5000, "S", true, false, tagEsteh, "Jepang");
 
         tagIcedCoffeeLatte.add("pahit");
         tagIcedCoffeeLatte.add("manis");
 
-        icedcoffeelatte = new Minuman_Method("Iced Coffee Latte", 60000, false, false, tagIcedCoffeeLatte, "Amerika");
+        icedcoffeelatte = new Minuman_Method("Iced Coffee Latte", 60000, "L", true, true, tagIcedCoffeeLatte, "Amerika");
 
 
         tagThaitea.add("manis");
 
-        thaitea = new Minuman_Method("Thaitea", 30000, false, false, tagThaitea, "Thailand");
+        thaitea = new Minuman_Method("Thaitea", 30000, "M", true, false, tagThaitea, "Thailand");
 
         tagTehTarik.add("manis");
 
-        tehtarik = new Minuman_Method("Teh Tarik", 20000, false, false, tagTehTarik, "Indonesia");
+        tehtarik = new Minuman_Method("Teh Tarik", 20000, "L",false,false,  tagTehTarik, "Indonesia");
 
 
         menuMinuman.add(ocha);
@@ -80,4 +81,3 @@ public class Menu {
         return this.tehtarik;
     }
   }
-}

@@ -1,5 +1,7 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import Method.Menu;
 import Method.Minuman_Method;
@@ -9,28 +11,26 @@ public class Minuman {
     private JTable minumanTable;
     private JButton showRecommendationButton;
     private JCheckBox manisCheckBox;
-    private JCheckBox asinCheckBox;
     private JCheckBox pahitCheckBox;
-    private JCheckBox asamCheckBox;
-    private JTextPane textUang;
+    private JTextField textUang;
     private JComboBox cmbSuhu;
     private JRadioButton kecilRadioButton;
     private JRadioButton sedangRadioButton;
     private JRadioButton besarRadioButton;
-    private JTextPane txtCountry;
+    private JTextField txtCountry;
     private JButton backButton;
     private static JFrame frame;
     static Menu menu = new Menu();
     static ArrayList<Minuman_Method> rekom = new ArrayList<>();
 
-    Object [][] listMinuman;
     public Minuman() {
+        // dingin = true, panas = false
         Object [][] listMinuman = {
                 {"Ocha", "10.000", "M", "Dingin", "Non-kafein", "Pahit", "Jepang"},
                 {"Esteh", "5.000", "M", "Dingin", "Non-kafein", "Manis", "Jepang"},
                 {"Iced Coffee Latte", "60.000", "L", "Dingin", "Kafein", "pahit, manis", "Amerika"},
                 {"Thaitea", "30.000", "M", "Dingin", "Non-kafein", "Manis", "Thailand"},
-                {"Teh Tarik", "20.000", "L", "Dingin", "Non-kafein", "Manis", "Indonesia"},
+                {"Teh Tarik", "20.000", "L", "Panas", "Non-kafein", "Manis", "Indonesia"},
         };
 
         minumanTable.setModel(new DefaultTableModel(
@@ -39,6 +39,73 @@ public class Minuman {
         backButton.addActionListener(actionEvent -> {
             new Main().main(null);
             this.frame.setVisible(false);
+        });
+        cmbSuhu.addActionListener(actionEvent ->{
+            String cool,hot;
+            cool = String.valueOf(cmbSuhu.getSelectedItem());
+            if(cool.equalsIgnoreCase("Dingin")){
+                if(rekom.isEmpty()){
+                    addMenuMinum();
+                }
+                int loop = rekom.size();
+                int i = 0;
+                while (i < loop){
+                    if (rekom.get(i).getSuhu()){
+                        rekom.remove(i);
+                        loop = rekom.size();
+                        i = 0;
+                    }
+                    else{
+                        i++;
+                    }
+                }
+            }
+            hot = String.valueOf(cmbSuhu.getSelectedItem());
+            if(hot.equalsIgnoreCase("Panas")){
+                if(rekom.isEmpty()){
+                    addMenuMinum();
+                }
+                int loop = rekom.size();
+                int i = 0;
+                while (i < loop){
+                    if (rekom.get(i).getSuhu()){
+                        rekom.remove(i);
+                        loop = rekom.size();
+                        i = 0;
+                    }
+                    else{
+                        i++;
+                    }
+                }
+            }
+        });
+        showRecommendationButton.addActionListener(actionEvent -> {
+            Show out = new Show();
+            String pembuka = "Berikut Minuman yang kami rekomendasikan: \n";
+            int jlh = rekom.size();
+            if (jlh == 1) {
+                out.setTeks(pembuka +
+                        rekom.get(0).getNama());
+            } else if (jlh == 2) {
+                out.setTeks(pembuka +
+                        rekom.get(0).getNama() + "\n" +
+                        rekom.get(1).getNama());
+            } else if (jlh == 3) {
+                out.setTeks(pembuka +
+                        rekom.get(0).getNama() + "\n" +
+                        rekom.get(1).getNama() + "\n" +
+                        rekom.get(2).getNama());
+            } else if (jlh == 4) {
+                out.setTeks(pembuka +
+                        rekom.get(0).getNama() + "\n" +
+                        rekom.get(1).getNama() + "\n" +
+                        rekom.get(2).getNama() + "\n" +
+                        rekom.get(3).getNama());
+            } else {
+                out.setTeks("Maaf tidak ada rekomendasi yang \n sesuai dengan budget atau selera anda :(");
+            }
+//            out.main(null);
+            frame.setVisible(false);
         });
         pahitCheckBox.addActionListener(actionEvent ->{
             if (pahitCheckBox.isSelected()){
@@ -54,6 +121,44 @@ public class Minuman {
                 rekom.add(menu.getIcedcoffeelatte());
             }
         });
+
+        kecilRadioButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(kecilRadioButton.isSelected()){
+                    sedangRadioButton.setSelected(false);
+                    besarRadioButton.setSelected(false);
+                    rekom.add(menu.getEsteh());
+                }
+            }
+        });
+
+        sedangRadioButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (sedangRadioButton.isSelected()){
+                    kecilRadioButton.setSelected(false);
+                    besarRadioButton.setSelected(false);
+                    rekom.add(menu.getOcha());
+                    rekom.add(menu.getThaitea());
+                }
+            }
+        });
+
+        besarRadioButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (besarRadioButton.isSelected()){
+                    kecilRadioButton.setSelected(false);
+                    sedangRadioButton.setSelected(false);
+                    rekom.add(menu.getIcedcoffeelatte());
+                    rekom.add(menu.getTehtarik());
+                }
+            }
+        });
+
+
+
         textUang.addActionListener(actionEvent ->{
             if(rekom.isEmpty()) {
                 addMenuMinum();
@@ -129,6 +234,7 @@ public class Minuman {
         });
     }
 
+
   private void addMenuMinum() {
         rekom.add(menu.getOcha());
         rekom.add(menu.getEsteh());
@@ -145,3 +251,5 @@ public class Minuman {
         frame.setVisible(true);
     }
 }
+
+

@@ -13,8 +13,6 @@ public class Main {
     private JButton makananButton;
     private static JFrame frame;
 
-    Object [][] listMakanan;
-    Object [][] listMinuman;
     public Main() {
         Object [][] listMakanan = {
                 {"Spaghetti", "10.000", "Non-vegetarian" , "manis, asam, pedas, sehat", "Italia"},
