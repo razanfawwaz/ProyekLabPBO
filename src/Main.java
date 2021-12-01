@@ -12,6 +12,7 @@ public class Main {
     private JButton minumanButton;
     private JButton makananButton;
     private static JFrame frame;
+    public static Show mInstance;
 
     public Main() {
         Object [][] listMakanan = {

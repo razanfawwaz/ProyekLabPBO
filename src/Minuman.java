@@ -139,7 +139,6 @@ public class Minuman {
                 if (sedangRadioButton.isSelected()){
                     kecilRadioButton.setSelected(false);
                     besarRadioButton.setSelected(false);
-                    rekom.add(menu.getOcha());
                     rekom.add(menu.getThaitea());
                 }
             }

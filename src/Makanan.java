@@ -1,5 +1,7 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import Method.DaftarMenu;
 import Method.Makanan_Method;
@@ -269,8 +271,6 @@ public class Makanan{
 class Show {
     private JTextArea txtOutput;
     private JPanel jpanelmain;
-
-
     public Show() {
         createAndShowGui();
     }
@@ -286,6 +286,7 @@ class Show {
         jpanelmain = new JPanel();
         txtOutput = new JTextArea();
         jpanelmain.add(txtOutput);
+
         frame.setContentPane(jpanelmain);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300,300);
